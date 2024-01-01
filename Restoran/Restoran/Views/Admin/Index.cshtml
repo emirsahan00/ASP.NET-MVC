@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Restoran.Identity.ApplicationUser>
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .panel {
+        margin-top: 20px;
+    }
+
+    .panel-heading {
+        background-color: #337ab7;
+        color: white;
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 0;
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+</style>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Users
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" class="text-center">
+                    Kullanıcı Yok!
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.UserName</td>
+                    <td>@item.Email</td>
+                </tr>
+            }
+        }
+    </table>
+</div>

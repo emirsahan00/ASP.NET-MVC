@@ -1,0 +1,63 @@
+﻿@using Restoran.Models.Siniflar
+@model List<Menu>
+@{
+    var random = new Random();
+}
+
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Menu</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
+                <li class="breadcrumb-item"><a href="#">Sayfalar</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+        </div>
+<!-- Navbar & Hero End -->
+
+
+
+
+
+<!-- MENU Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Yemek Menüleri</h5>
+            <h1 class="mb-5">En Popüler Menüler</h1>
+        </div>
+        <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        @foreach (var x in Model)
+                        {
+                            var randomPrice = random.Next(100, 201);
+
+                            <div class="col-lg-6">
+                                <div class="d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid rounded" src="@x.FotoUrl" alt="" style="width: 80px;">
+                                    <div class="w-100 d-flex flex-column text-start ps-4">
+                                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                            <span>@x.Baslik</span>
+                                            <span class="text-primary">$@randomPrice</span>
+                                        </h5>
+                                        <small class="fst-italic">@x.Aciklama</small>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Menu End -->
